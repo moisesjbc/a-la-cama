@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gameplay/floor/floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/level/level.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.5, 32 )
+
+[node name="level" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="roof" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 328 )
+
+[node name="fixed_elements" type="Node2D" parent="."]
+
+[node name="bed" type="Area2D" parent="fixed_elements"]
+position = Vector2( 120, 1000 )
+collision_layer = 4
+
+[node name="sprite" type="Sprite" parent="fixed_elements/bed"]
+texture = ExtResource( 2 )
+
+[node name="collision_shape" type="CollisionShape2D" parent="fixed_elements/bed"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="player_spawn_position" type="Position2D" parent="fixed_elements"]
+position = Vector2( 1816, 1000 )
+
+[connection signal="body_entered" from="fixed_elements/bed" to="." method="_on_bed_body_entered"]
