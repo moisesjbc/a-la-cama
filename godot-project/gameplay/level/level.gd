@@ -10,3 +10,9 @@ func _on_bed_body_entered(body):
 
 func get_player_spawn_position():
 	return $fixed_elements/player_spawn_position.global_position
+
+func get_fixed_elements_scale():
+	return $fixed_elements.scale.x
+
+func load_level(fixed_elements_scale):
+	$fixed_elements.scale.x = -fixed_elements_scale

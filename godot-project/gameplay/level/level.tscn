@@ -14,9 +14,10 @@ script = ExtResource( 3 )
 position = Vector2( 0, 328 )
 
 [node name="fixed_elements" type="Node2D" parent="."]
+position = Vector2( 968, 1008 )
 
 [node name="bed" type="Area2D" parent="fixed_elements"]
-position = Vector2( 120, 1000 )
+position = Vector2( -800, 0 )
 collision_layer = 4
 
 [node name="sprite" type="Sprite" parent="fixed_elements/bed"]
@@ -27,6 +28,6 @@ position = Vector2( -0.5, 0 )
 shape = SubResource( 1 )
 
 [node name="player_spawn_position" type="Position2D" parent="fixed_elements"]
-position = Vector2( 1816, 1000 )
+position = Vector2( 800, 0 )
 
 [connection signal="body_entered" from="fixed_elements/bed" to="." method="_on_bed_body_entered"]
