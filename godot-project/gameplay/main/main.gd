@@ -6,11 +6,13 @@ func _ready():
 
 
 func _on_moon_moon_collided():
+	$moon.restart()
 	$levels._on_moon_moon_collided()
+	
 
 
 func _on_levels_player_reached_bed():
-	$moon.restart()
+	$moon.fall()
 
 
 func _on_player_player_died():

@@ -5,6 +5,7 @@ onready var distance_between_levels: int = get_child(1).position.y - get_child(0
 var level_distance = 0
 export var LEVEL_CHANGING_SPEED: int = 700
 var player
+var player_has_reached_bed = false
 
 signal player_reached_bed
 
@@ -13,10 +14,10 @@ func _ready():
 
 
 func next_level():
+	player_has_reached_bed = false
 	player.visible = false
 	get_child(0).disconnect("player_reached_bed", self, "_on_player_reached_bed")
-	emit_signal("player_reached_bed")
-	
+
 	# Load next level
 	get_child(1).load_level(get_child(0).get_fixed_elements_scale())
 	
@@ -33,11 +34,15 @@ func next_level():
 
 
 func _on_player_reached_bed():
-	next_level()
+	player_has_reached_bed = true
+	emit_signal("player_reached_bed")
 
 
 func _on_moon_moon_collided():
-	player.destroy()
+	if player_has_reached_bed:
+		next_level()
+	else:
+		player.destroy()
 
 
 func _process(delta):
@@ -48,4 +53,4 @@ func _process(delta):
 		if level_distance == 0:
 			player.global_position = get_child(0).get_player_spawn_position()
 			player.visible = true
-			get_child(0).connect("player_reached_bed", self, "next_level")
+			get_child(0).connect("player_reached_bed", self, "_on_player_reached_bed")

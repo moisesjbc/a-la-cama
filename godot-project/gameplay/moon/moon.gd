@@ -21,5 +21,9 @@ func restart():
 		velocity.y = -MAX_SPEED
 
 
+func fall():
+	velocity.y = MAX_SPEED
+
+
 func _on_visibility_notifier_viewport_exited(viewport):
 	velocity.y = SPEED
