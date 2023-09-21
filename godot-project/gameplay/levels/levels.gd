@@ -6,6 +6,7 @@ var level_distance = 0
 export var LEVEL_CHANGING_SPEED: int = 700
 var player
 
+signal player_reached_bed
 
 func _ready():
 	get_child(0).connect("player_reached_bed", self, "next_level")
@@ -14,6 +15,7 @@ func _ready():
 func next_level():
 	player.visible = false
 	get_child(0).disconnect("player_reached_bed", self, "next_level")
+	emit_signal("player_reached_bed")
 	
 	# Load next level
 	get_child(1).load_level(get_child(0).get_fixed_elements_scale())

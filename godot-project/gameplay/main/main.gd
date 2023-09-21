@@ -15,3 +15,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_moon_moon_collided():
+	$levels.next_level()
+
+
+func _on_levels_player_reached_bed():
+	$moon.restart()
