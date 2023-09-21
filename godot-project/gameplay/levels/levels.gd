@@ -9,12 +9,12 @@ var player
 signal player_reached_bed
 
 func _ready():
-	get_child(0).connect("player_reached_bed", self, "next_level")
+	get_child(0).connect("player_reached_bed", self, "_on_player_reached_bed")
 
 
 func next_level():
 	player.visible = false
-	get_child(0).disconnect("player_reached_bed", self, "next_level")
+	get_child(0).disconnect("player_reached_bed", self, "_on_player_reached_bed")
 	emit_signal("player_reached_bed")
 	
 	# Load next level
@@ -30,6 +30,14 @@ func next_level():
 	
 	# Start levels movement by setting a distance for moving them.
 	level_distance = distance_between_levels
+
+
+func _on_player_reached_bed():
+	next_level()
+
+
+func _on_moon_moon_collided():
+	player.destroy()
 
 
 func _process(delta):

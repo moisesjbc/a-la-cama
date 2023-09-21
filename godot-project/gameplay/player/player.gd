@@ -7,6 +7,9 @@ export var JUMP_SPEED: int = 500
 
 var vertical_speed = 0
 
+signal player_died
+
+
 func _physics_process(delta):
 	var velocity: Vector2 = Vector2.ZERO
 
@@ -27,3 +30,7 @@ func _physics_process(delta):
 
 	# Apply movement
 	move_and_slide(velocity, UP)
+
+
+func destroy():
+	emit_signal("player_died")
