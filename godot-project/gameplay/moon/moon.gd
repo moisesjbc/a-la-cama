@@ -23,6 +23,8 @@ func restart():
 	global_position = initial_global_position
 
 
-func fall():
+func fall(is_happy):
 	$particles.emitting = true
+	$happy_face.visible = is_happy
+	$angry_face.visible = not is_happy
 	velocity.y = SPEED

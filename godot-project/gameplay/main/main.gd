@@ -16,7 +16,7 @@ func _on_moon_moon_collided():
 
 
 func _on_levels_player_reached_bed():
-	$moon.fall()
+	$moon.fall(true)
 
 
 func _on_player_player_died():
@@ -24,12 +24,12 @@ func _on_player_player_died():
 
 
 func _on_time_counter_time_ended():
-	$moon.fall()
+	$moon.fall(false)
 
 
 func _on_level_player_reached_bed():
 	player_reached_bed = true
-	$moon.fall()
+	$moon.fall(true)
 
 
 func start_level(level_index):
