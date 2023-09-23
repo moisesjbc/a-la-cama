@@ -27,7 +27,7 @@ func stop():
 func _on_restart_button_pressed():
 	stop()
 	if is_game_over:
-		main.restart_level()
+		main.restart_game()
 	else:
 		main.next_level()
 

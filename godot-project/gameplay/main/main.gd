@@ -6,7 +6,7 @@ var current_level_index = 0
 
 
 func _ready():
-	restart_level()
+	restart_game()
 	
 
 func _on_moon_moon_collided():
@@ -37,10 +37,10 @@ func start_level(level_index):
 	$level.start(current_level_index)
 	$player.global_position = $level.get_player_spawn_position()
 	$background_gui/time_counter.start(10)
-	
 
-func restart_level():
-	start_level(current_level_index)
+
+func restart_game():
+	start_level(0)
 
 
 func next_level():

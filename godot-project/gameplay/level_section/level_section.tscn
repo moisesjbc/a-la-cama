@@ -1,8 +1,5 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://gameplay/tilesets/terrain_tileset/terrain_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://gameplay/tilesets/obstacles_tileset/obstacles_tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://gameplay/level_section/obstacles.gd" type="Script" id=3]
 [ext_resource path="res://gameplay/level_section/level_section.gd" type="Script" id=4]
 
 [node name="level_section" type="Node2D"]
@@ -15,25 +12,4 @@ margin_top = -480.0
 margin_right = 384.0
 margin_bottom = 447.0
 
-[node name="alternatives" type="Node2D" parent="."]
-
-[node name="a0" type="Node2D" parent="alternatives"]
-
-[node name="terrain" type="TileMap" parent="alternatives/a0"]
-tile_set = ExtResource( 1 )
-collision_layer = 2
-format = 1
-tile_data = PoolIntArray( 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0 )
-
-[node name="obstacles" type="Area2D" parent="alternatives/a0"]
-collision_layer = 32
-script = ExtResource( 3 )
-
-[node name="obstacles" type="TileMap" parent="alternatives/a0/obstacles"]
-tile_set = ExtResource( 2 )
-collision_use_parent = true
-collision_layer = 32
-format = 1
-tile_data = PoolIntArray( 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0 )
-
-[connection signal="body_entered" from="alternatives/a0/obstacles" to="alternatives/a0/obstacles" method="_on_obstacles_body_entered"]
+[node name="alternative" type="Node2D" parent="."]
