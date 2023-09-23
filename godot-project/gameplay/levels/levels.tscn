@@ -4,13 +4,12 @@
 [ext_resource path="res://gameplay/levels/levels.gd" type="Script" id=2]
 
 [node name="levels" type="Node2D"]
-position = Vector2( 0, 8 )
 script = ExtResource( 2 )
 
 [node name="0" parent="." instance=ExtResource( 1 )]
 
 [node name="1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 752 )
+position = Vector2( 0, 704 )
 
 [node name="2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 1504 )
+position = Vector2( 0, 1408 )

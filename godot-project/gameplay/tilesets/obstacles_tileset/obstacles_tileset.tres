@@ -3,17 +3,17 @@
 [ext_resource path="res://gameplay/tilesets/obstacles_tileset/obstacles_tileset.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 3.33334, 49.1667, 25, 13.3334, 45.8333, 50 )
+points = PoolVector2Array( 0.605103, 63.6775, 31.5832, 9.25662, 63.1194, 63.6775 )
 
 [resource]
 0/name = "obstacles_tileset.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 50, 50 )
+0/region = Rect2( 0, 0, 64, 64 )
 0/tile_mode = 2
 0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 50, 50 )
+0/autotile/tile_size = Vector2( 64, 64 )
 0/autotile/spacing = 0
 0/autotile/occluder_map = [  ]
 0/autotile/navpoly_map = [  ]
