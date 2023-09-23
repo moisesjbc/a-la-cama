@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var SPEED: int = 10
 export var MAX_SPEED: int = 500
-var velocity: Vector2 = Vector2(0, SPEED)
+var velocity: Vector2 = Vector2(0, 0)
 
 signal moon_collided
 
