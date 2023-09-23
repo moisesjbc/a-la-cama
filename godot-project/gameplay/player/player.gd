@@ -10,6 +10,11 @@ var vertical_speed = 0
 signal player_died
 
 
+func restart():
+	$sprite.visible = true
+	$z_particles.emitting = false
+
+
 func _physics_process(delta):
 	var velocity: Vector2 = Vector2.ZERO
 
@@ -34,3 +39,8 @@ func _physics_process(delta):
 
 func destroy():
 	emit_signal("player_died")
+
+
+func sleep():
+	$sprite.visible = false
+	$z_particles.emitting = true

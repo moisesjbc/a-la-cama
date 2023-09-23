@@ -32,6 +32,8 @@ func update_valid_alternatives(current_level_index):
 
 
 func _on_bed_body_entered(body):
+	body.sleep()
+	$fixed_elements/bed.visible = false
 	emit_signal("player_reached_bed")
 
 
@@ -44,6 +46,7 @@ func get_fixed_elements_scale():
 
 
 func start(current_level_index):
+	$fixed_elements/bed.visible = true
 	var fixed_elements_scale: int = 1
 	if current_level_index % 2 == 1:
 		fixed_elements_scale = -1

@@ -9,7 +9,7 @@ var current_level_index = 0
 
 func _ready():
 	restart_game()
-	
+
 
 func _on_moon_moon_collided():
 	$front_gui/level_end_screen.start(self, not player_reached_bed)
@@ -35,6 +35,7 @@ func _on_level_player_reached_bed():
 func start_level(level_index):
 	current_level_index = level_index
 	player_reached_bed = false
+	$player.restart()
 	$moon.restart()
 	$level.start(current_level_index)
 	$player.global_position = $level.get_player_spawn_position()
