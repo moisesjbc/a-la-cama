@@ -1,32 +1,28 @@
 extends Sprite
 
-export var SPEED: int = 10
-export var MAX_SPEED: int = 3000
+export var SPEED: int = 3000
 var velocity: Vector2 = Vector2(0, 0)
+onready var initial_global_position = global_position
 
 signal moon_collided
 
+
 func _process(delta):
 	if velocity.y != 0:
-		# Fall until crashing with the building roof
+		# Fall until filling the screen.
 		global_position.y += velocity.y * delta
-		print("global_position.y ", global_position.y)
 		if global_position.y >= (get_rect().size.y / 2):
 			global_position.y = (get_rect().size.y / 2)
 			velocity.y = 0
 			$particles.emitting = false
-		#if collision:
-		#	print(collision.collider.name)
-		#	emit_signal("moon_collided")
-		#	restart()
+			emit_signal("moon_collided")
 
 
 func restart():
 	# It's a new day! :-D
-	if velocity.y > 0:
-		velocity.y = -MAX_SPEED
+	global_position = initial_global_position
 
 
 func fall():
 	$particles.emitting = true
-	velocity.y = MAX_SPEED
+	velocity.y = SPEED

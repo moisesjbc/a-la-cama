@@ -1,16 +1,16 @@
 extends Node
 
 
-func _ready():
-	$levels.player = $player
-	$gui/time_counter.start(1)
+var player_reached_bed: bool = false
+var current_level_index = 0
 
+
+func _ready():
+	restart_level()
+	
 
 func _on_moon_moon_collided():
-	print("ON MOOD COLLIDED")
-	$moon.restart()
-	$levels._on_moon_moon_collided()
-	
+	$front_gui/level_end_screen.start(self, not player_reached_bed)
 
 
 func _on_levels_player_reached_bed():
@@ -18,9 +18,30 @@ func _on_levels_player_reached_bed():
 
 
 func _on_player_player_died():
-	$gui/game_over.start()
-
+	$front_gui/game_over.start()
 
 
 func _on_time_counter_time_ended():
 	$moon.fall()
+
+
+func _on_level_player_reached_bed():
+	player_reached_bed = true
+	$moon.fall()
+
+
+func start_level(level_index):
+	current_level_index = level_index
+	player_reached_bed = false
+	$moon.restart()
+	$level.start(current_level_index)
+	$player.global_position = $level.get_player_spawn_position()
+	$background_gui/time_counter.start(10)
+	
+
+func restart_level():
+	start_level(current_level_index)
+
+
+func next_level():
+	start_level(current_level_index + 1)

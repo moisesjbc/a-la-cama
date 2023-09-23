@@ -16,10 +16,10 @@ script = ExtResource( 3 )
 
 [node name="panel" type="Panel" parent="."]
 margin_left = 660.0
-margin_top = 340.0
+margin_top = 437.0
 margin_right = 1260.0
-margin_bottom = 740.0
-rect_min_size = Vector2( 600, 400 )
+margin_bottom = 587.0
+rect_min_size = Vector2( 600, 150 )
 
 [node name="margin_container" type="MarginContainer" parent="panel"]
 anchor_right = 1.0
@@ -33,7 +33,7 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 580.0
-margin_bottom = 380.0
+margin_bottom = 130.0
 custom_constants/separation = 20
 
 [node name="tile" type="Label" parent="panel/margin_container/vertical_container"]
@@ -46,7 +46,7 @@ align = 1
 [node name="restart_button" parent="panel/margin_container/vertical_container" instance=ExtResource( 2 )]
 margin_top = 54.0
 margin_right = 560.0
-margin_bottom = 79.0
+margin_bottom = 81.0
 text = "Reiniciar juego [espacio]"
 
 [connection signal="pressed" from="panel/margin_container/vertical_container/restart_button" to="." method="_on_restart_button_pressed"]
