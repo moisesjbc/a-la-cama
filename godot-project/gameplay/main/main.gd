@@ -5,6 +5,8 @@ var player_reached_bed: bool = false
 var current_level_index = 0
 
 
+
+
 func _ready():
 	restart_game()
 	

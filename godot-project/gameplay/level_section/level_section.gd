@@ -12,19 +12,13 @@ var alternatives = [
 ]
 
 
-func load_section(current_level_index, fixed_elements_scale):
+func load_section(valid_alternatives, current_level_index, fixed_elements_scale):
 	if $alternative.get_child(0) != null:
 		$alternative.get_child(0).queue_free()
 
-	var valid_alternatives = []
-	for alternative in alternatives:
-		if current_level_index >= alternative["first_level"]:
-			valid_alternatives.append(alternative)
-	randomize()
 	if len(valid_alternatives):
 		var current_alternative_index = randi() % len(valid_alternatives)
-		var current_alternative = valid_alternatives[current_alternative_index]
 		print("ENABLING current_alternative_index ", current_alternative_index)
-		var alternative_scene = load("res://gameplay/level_section/alternatives/" + current_alternative["scene_name"] + ".tscn").instance()
+		var alternative_scene = valid_alternatives[current_alternative_index].instance()
 		alternative_scene.scale.x = fixed_elements_scale
 		$alternative.add_child(alternative_scene)
