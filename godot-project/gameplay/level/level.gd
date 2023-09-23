@@ -11,6 +11,10 @@ var alternative_defs = [
 	{
 		"scene_name": "a1",
 		"first_level": 2
+	},
+	{
+		"scene_name": "a2",
+		"first_level": 3
 	}
 ]
 var valid_alternatives = []
