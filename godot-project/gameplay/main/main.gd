@@ -3,10 +3,11 @@ extends Node
 
 func _ready():
 	$levels.player = $player
-	$gui/time_counter.start(5)
+	$gui/time_counter.start(1)
 
 
 func _on_moon_moon_collided():
+	print("ON MOOD COLLIDED")
 	$moon.restart()
 	$levels._on_moon_moon_collided()
 	

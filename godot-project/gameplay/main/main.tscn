@@ -16,8 +16,6 @@ position = Vector2( 1822, 853 )
 
 [node name="levels" parent="." instance=ExtResource( 2 )]
 
-[node name="moon" parent="." instance=ExtResource( 4 )]
-
 [node name="gui" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,7 +27,9 @@ visible = false
 
 [node name="walls" parent="." instance=ExtResource( 6 )]
 
+[node name="moon" parent="." instance=ExtResource( 4 )]
+
 [connection signal="player_died" from="player" to="." method="_on_player_player_died"]
 [connection signal="player_reached_bed" from="levels" to="." method="_on_levels_player_reached_bed"]
-[connection signal="moon_collided" from="moon" to="." method="_on_moon_moon_collided"]
 [connection signal="time_ended" from="gui/time_counter" to="." method="_on_time_counter_time_ended"]
+[connection signal="moon_collided" from="moon" to="." method="_on_moon_moon_collided"]
