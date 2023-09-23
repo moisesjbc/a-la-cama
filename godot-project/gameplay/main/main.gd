@@ -38,7 +38,7 @@ func start_level(level_index):
 	$moon.restart()
 	$level.start(current_level_index)
 	$player.global_position = $level.get_player_spawn_position()
-	$background_gui/time_counter.start(50)
+	$background_gui/time_counter.start(20)
 
 
 func restart_game():
