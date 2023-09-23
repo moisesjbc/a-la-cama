@@ -34,9 +34,9 @@ position = Vector2( 856, 0 )
 [node name="level_sections" type="Node2D" parent="."]
 
 [node name="0" parent="level_sections" instance=ExtResource( 4 )]
-position = Vector2( 192, 64 )
+position = Vector2( 576, 512 )
 
 [node name="1" parent="level_sections" instance=ExtResource( 4 )]
-position = Vector2( 960, 64 )
+position = Vector2( 1344, 512 )
 
 [connection signal="body_entered" from="fixed_elements/bed" to="." method="_on_bed_body_entered"]

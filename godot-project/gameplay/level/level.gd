@@ -15,4 +15,6 @@ func get_fixed_elements_scale():
 	return $fixed_elements.scale.x
 
 func load_level(fixed_elements_scale):
-	$fixed_elements.scale.x = -fixed_elements_scale
+	$fixed_elements.scale.x = fixed_elements_scale
+	for level_section in $level_sections.get_children():
+		level_section.load_section(fixed_elements_scale)

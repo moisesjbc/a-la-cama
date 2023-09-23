@@ -19,7 +19,7 @@ func next_level():
 	get_child(0).disconnect("player_reached_bed", self, "_on_player_reached_bed")
 
 	# Load next level
-	get_child(1).load_level(get_child(0).get_fixed_elements_scale())
+	get_child(1).load_level(-get_child(0).get_fixed_elements_scale())
 	
 	# Create a new level on the "backlog"
 	var new_level = level_scene.instance()
