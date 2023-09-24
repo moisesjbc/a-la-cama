@@ -17,10 +17,10 @@ anchor_bottom = 1.0
 
 [node name="panel" type="Panel" parent="center_container"]
 margin_left = 460.0
-margin_top = 262.0
+margin_top = 237.0
 margin_right = 1460.0
-margin_bottom = 762.0
-rect_min_size = Vector2( 1000, 500 )
+margin_bottom = 787.0
+rect_min_size = Vector2( 1000, 550 )
 custom_styles/panel = ExtResource( 1 )
 
 [node name="margin_container" type="MarginContainer" parent="center_container/panel"]
@@ -35,7 +35,7 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 980.0
-margin_bottom = 480.0
+margin_bottom = 530.0
 
 [node name="title" type="Label" parent="center_container/panel/margin_container/vbox_container"]
 margin_right = 960.0
@@ -48,12 +48,12 @@ valign = 1
 [node name="scroll_container" type="ScrollContainer" parent="center_container/panel/margin_container/vbox_container"]
 margin_top = 50.0
 margin_right = 960.0
-margin_bottom = 416.0
+margin_bottom = 466.0
 size_flags_vertical = 3
 
 [node name="credits" type="RichTextLabel" parent="center_container/panel/margin_container/vbox_container/scroll_container"]
 margin_right = 960.0
-margin_bottom = 366.0
+margin_bottom = 416.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 3 )
@@ -67,6 +67,7 @@ para la [url=https://itch.io/jam/indie-spain-jam-23]Indie Spain Jam 2023[/url]
 [url=https://godotengine.org/]Godot[/url]
 [url=https://www.gimp.org/]GIMP[/url]
 [url=https://design.ubuntu.com/font]Ubuntu font[/url]
+[url=https://www.drpetter.se/project_sfxr.html]sfxr[/url]
 [/center]"
 text = "
 Desarrollo
@@ -77,12 +78,13 @@ Software y recursos de terceros
 Godot
 GIMP
 Ubuntu font
+sfxr
 "
 
 [node name="main_menu_button" parent="center_container/panel/margin_container/vbox_container" instance=ExtResource( 5 )]
-margin_top = 420.0
+margin_top = 470.0
 margin_right = 960.0
-margin_bottom = 460.0
+margin_bottom = 510.0
 text = "MENÚ PRINCIPAL"
 
 [connection signal="meta_clicked" from="center_container/panel/margin_container/vbox_container/scroll_container/credits" to="." method="_on_credits_meta_clicked"]
