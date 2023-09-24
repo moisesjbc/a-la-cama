@@ -48,3 +48,8 @@ func restart_game():
 
 func next_level():
 	start_level(current_level_index + 1)
+
+
+func _input(event):
+	if event is InputEventKey and event.scancode == KEY_ESCAPE and not event.pressed:
+		$front_gui/pause_menu.start()
