@@ -23,10 +23,10 @@ anchor_bottom = 1.0
 
 [node name="menu_panel" type="Panel" parent="center_container"]
 margin_left = 560.0
-margin_top = 299.0
+margin_top = 262.0
 margin_right = 1360.0
-margin_bottom = 724.0
-rect_min_size = Vector2( 800, 425 )
+margin_bottom = 762.0
+rect_min_size = Vector2( 800, 500 )
 custom_styles/panel = ExtResource( 6 )
 
 [node name="margin_container" type="MarginContainer" parent="center_container/menu_panel"]
@@ -41,7 +41,7 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 780.0
-margin_bottom = 405.0
+margin_bottom = 480.0
 custom_constants/separation = 20
 
 [node name="moon" type="Sprite" parent="center_container/menu_panel/margin_container/vbox_container"]
@@ -56,7 +56,7 @@ texture = ExtResource( 4 )
 
 [node name="title" type="Label" parent="center_container/menu_panel/margin_container/vbox_container"]
 margin_right = 760.0
-margin_bottom = 164.0
+margin_bottom = 179.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "¡A LA CAMA!"
@@ -64,27 +64,33 @@ align = 1
 valign = 1
 
 [node name="play_button" parent="center_container/menu_panel/margin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 184.0
+margin_top = 199.0
 margin_right = 760.0
-margin_bottom = 224.0
+margin_bottom = 239.0
 text = "JUGAR"
 
 [node name="credits_menu" parent="center_container/menu_panel/margin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 244.0
+margin_top = 259.0
 margin_right = 760.0
-margin_bottom = 284.0
+margin_bottom = 299.0
 text = "CRÉDITOS"
 
-[node name="exit_button" parent="center_container/menu_panel/margin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 304.0
+[node name="fullscreen_button" parent="center_container/menu_panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 319.0
 margin_right = 760.0
-margin_bottom = 344.0
+margin_bottom = 359.0
+text = "PANTALLA COMPLETA ON/OFF"
+
+[node name="exit_button" parent="center_container/menu_panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 379.0
+margin_right = 760.0
+margin_bottom = 419.0
 text = "SALIR DEL JUEGO"
 
 [node name="version" type="Label" parent="center_container/menu_panel/margin_container/vbox_container"]
-margin_top = 364.0
+margin_top = 439.0
 margin_right = 760.0
-margin_bottom = 385.0
+margin_bottom = 460.0
 custom_fonts/font = SubResource( 1 )
 text = "v0.1"
 align = 1
@@ -92,4 +98,5 @@ valign = 1
 
 [connection signal="pressed" from="center_container/menu_panel/margin_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="center_container/menu_panel/margin_container/vbox_container/credits_menu" to="." method="_on_credits_menu_pressed"]
+[connection signal="pressed" from="center_container/menu_panel/margin_container/vbox_container/fullscreen_button" to="." method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="center_container/menu_panel/margin_container/vbox_container/exit_button" to="." method="_on_exit_button_pressed"]
