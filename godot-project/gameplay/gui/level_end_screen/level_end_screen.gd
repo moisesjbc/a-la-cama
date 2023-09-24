@@ -9,11 +9,12 @@ func start(main, is_game_over):
 	self.main = main
 	self.is_game_over = is_game_over
 	if is_game_over:
-		$panel/margin_container/vbox_container/title.text = "¡Game over!"
-		$panel/margin_container/vbox_container/restart_button.text = "Nueva partida - [espacio]"
+		$panel/margin_container/vbox_container/title.text = "¡GAME OVER!"
+		$panel/margin_container/vbox_container/restart_button.text = "NUEVA PARTIDA - [espacio]"
 	else:
-		$panel/margin_container/vbox_container/title.text = "¡Dulces sueños!"
-		$panel/margin_container/vbox_container/restart_button.text = "Siguiente nivel - [espacio]"
+		$panel/margin_container/vbox_container/title.text = "¡DULCES SUEÑOS!"
+		$panel/margin_container/vbox_container/restart_button.text = "SIGUIENTE NIVEL - [espacio]"
+	$panel/margin_container/vbox_container/main_menu_button.visible = is_game_over
 	get_tree().paused = true
 	visible = true
 
@@ -37,4 +38,5 @@ func _input(event):
 
 
 func _on_main_menu_button_pressed():
-	pass # Replace with function body.
+	stop()
+	get_tree().change_scene("res://gui/menus/main_menu/main_menu.tscn")
