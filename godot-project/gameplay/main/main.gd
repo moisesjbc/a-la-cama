@@ -43,7 +43,7 @@ func start_level(level_index):
 
 
 func restart_game():
-	start_level(8)
+	start_level(0)
 
 
 func restart_level():
