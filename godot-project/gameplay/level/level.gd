@@ -5,7 +5,7 @@ export var enforced_alternative_scene_name: String = ""
 
 var current_level_index
 
-var n_levels = 15
+var n_levels = 17
 var alternative_defs = [
 	{
 		"scene_name": "a0",
@@ -34,6 +34,14 @@ var alternative_defs = [
 	{
 		"scene_name": "a6",
 		"first_level": 11
+	},
+	{
+		"scene_name": "a7",
+		"first_level": 13
+	},
+	{
+		"scene_name": "a8",
+		"first_level": 15
 	}
 ]
 var valid_alternatives = []

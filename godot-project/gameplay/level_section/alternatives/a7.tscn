@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gameplay/tilesets/obstacles_tileset/obstacles_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://gameplay/level_section/obstacles.gd" type="Script" id=2]
+[ext_resource path="res://gameplay/tilesets/terrain_tileset/terrain_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://gameplay/gravity_platform/gravity_platform.tscn" type="PackedScene" id=4]
+
+[node name="a7" type="Node2D"]
+
+[node name="terrain" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -196612, 1610612736, 0, -196611, -1610612736, 0, -196610, -1610612736, 0, -196609, -1610612736, 0, -262144, -1610612736, 0, -262143, 1610612736, 0, -262142, 1610612736, 0, -131076, 1610612736, 0, -196606, 1610612736, 0, -65540, 1610612736, 0, -131070, 1610612736, 0, -6, 1610612736, 0, -5, 1610612736, 0, -4, 1610612736, 0, -65534, 1610612736, 0, 2, 1610612736, 0, 65538, -1610612736, 0, 131074, -1610612736, 0, 262141, 1610612736, 0, 196610, -1610612736, 0, 327677, 0, 0, 262146, -1610612736, 0, 393212, 1610612736, 0, 458748, 1610612736, 0 )
+
+[node name="obstacles" type="Area2D" parent="."]
+collision_layer = 32
+script = ExtResource( 2 )
+
+[node name="obstacles" type="TileMap" parent="obstacles"]
+tile_set = ExtResource( 1 )
+collision_use_parent = true
+collision_layer = 32
+format = 1
+tile_data = PoolIntArray( -131075, -1610612736, 0, -196607, -1073741824, 0, -65539, -1610612736, 0, -131071, -1073741824, 0, -65535, -1073741824, 0, 65531, 1610612736, 0, 65532, 1610612736, 0, 1, -1073741824, 0, 65537, -1073741824, 0, 131073, -1073741824, 0, 327676, 0, 0 )
+
+[node name="gravity_platform" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 385 )
+
+[node name="gravity_platform2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -30, -125 )
+scale = Vector2( 1, -1 )
+
+[connection signal="body_entered" from="obstacles" to="obstacles" method="_on_obstacles_body_entered"]
