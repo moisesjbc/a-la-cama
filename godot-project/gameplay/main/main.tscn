@@ -38,10 +38,10 @@ anchor_bottom = 1.0
 [node name="game_over" parent="front_gui" instance=ExtResource( 5 )]
 visible = false
 
-[node name="level_end_screen" parent="front_gui" instance=ExtResource( 8 )]
+[node name="pause_menu" parent="front_gui" instance=ExtResource( 9 )]
 visible = false
 
-[node name="pause_menu" parent="front_gui" instance=ExtResource( 9 )]
+[node name="level_end_screen" parent="front_gui" instance=ExtResource( 8 )]
 visible = false
 
 [connection signal="player_died" from="player" to="." method="_on_player_player_died"]

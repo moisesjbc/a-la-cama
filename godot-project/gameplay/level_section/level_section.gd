@@ -18,7 +18,6 @@ func load_section(valid_alternatives, current_level_index, fixed_elements_scale)
 
 	if len(valid_alternatives):
 		var current_alternative_index = randi() % len(valid_alternatives)
-		print("ENABLING current_alternative_index ", current_alternative_index)
 		var alternative_scene = valid_alternatives[current_alternative_index].instance()
 		alternative_scene.scale.x = fixed_elements_scale
 		$alternative.add_child(alternative_scene)

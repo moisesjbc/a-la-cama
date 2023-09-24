@@ -8,15 +8,16 @@ export var JUMP_SPEED: int = 500
 var vertical_speed = 0
 
 signal player_died
+var player_died: bool = false
 
 
 func restart():
-	print("Restart gravity? (" + str(GRAVITY) + "): " + str((GRAVITY < 0)))
 	GRAVITY = 1000
 	JUMP_SPEED = 500
 	UP = Vector2(0, -1)
 	$sprite.visible = true
 	$z_particles.emitting = false
+	player_died = false
 
 
 func _physics_process(delta):
@@ -39,6 +40,10 @@ func _physics_process(delta):
 
 	# Apply movement
 	move_and_slide(velocity, UP)
+	
+	if not player_died and global_position.y < -64:
+		player_died = true
+		destroy()
 
 
 func destroy():
@@ -54,10 +59,3 @@ func invert_gravity():
 	GRAVITY *= -1
 	JUMP_SPEED *= -1
 	UP.y *= -1
-	print("GRAVITY INVERTED ", GRAVITY)
-	print("JUMP_SPEED INVERTED ", JUMP_SPEED)
-	print("UP INVERTED ", UP)
-
-
-func _on_visibility_notifier_viewport_exited(viewport):
-	destroy()
