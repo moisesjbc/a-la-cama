@@ -39,6 +39,7 @@ func update_valid_alternatives(current_level_index):
 func _on_bed_body_entered(body):
 	body.sleep()
 	$fixed_elements/bed.visible = false
+	$fixed_elements/bed/bed_reached.play()
 	emit_signal("player_reached_bed")
 
 
