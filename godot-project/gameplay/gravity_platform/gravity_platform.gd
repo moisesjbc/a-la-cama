@@ -8,3 +8,4 @@ func _ready():
 func _on_gravity_platform_body_entered(body):
 	if body.name == "player":
 		body.invert_gravity()
+		$gravity_inversion.play()
