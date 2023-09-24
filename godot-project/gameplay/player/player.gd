@@ -49,6 +49,7 @@ func _physics_process(delta):
 
 
 func destroy():
+	$hit.play()
 	emit_signal("player_died")
 
 
