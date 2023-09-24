@@ -5,7 +5,7 @@ export var enforced_alternative_scene_name: String = ""
 
 var current_level_index
 
-var n_levels = 10
+var n_levels = 15
 var alternative_defs = [
 	{
 		"scene_name": "a0",
@@ -21,15 +21,19 @@ var alternative_defs = [
 	},
 	{
 		"scene_name": "a3",
-		"first_level": 4
-	},
-	{
-		"scene_name": "a4",
 		"first_level": 5
 	},
 	{
-		"scene_name": "a5",
+		"scene_name": "a4",
 		"first_level": 7
+	},
+	{
+		"scene_name": "a5",
+		"first_level": 9
+	},
+	{
+		"scene_name": "a6",
+		"first_level": 11
 	}
 ]
 var valid_alternatives = []
@@ -37,7 +41,7 @@ var valid_alternatives = []
 var tutorial_texts = {
 	"0": "Bienvenido a \"¡A la cama!\"\nUsa las flechas o A/D para moverte hacia los lados y llegar hasta la cama\nantes de que se acabe el tiempo (barra superior)",
 	"1": "Parece que aquí CAE LA NOCHE literalmente.\nEn fin, esos pinchos parecen peligrosos. Pulsa ESPACIO para saltar",
-	"5": "Toca la plataforma para invertir la gravedad.\n¡Cuidado con salir volando!"
+	"7": "Toca la plataforma para invertir la gravedad.\n¡Cuidado con salir volando!"
 }
 
 func update_valid_alternatives(current_level_index):
