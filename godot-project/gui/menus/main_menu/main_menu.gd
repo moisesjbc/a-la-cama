@@ -11,3 +11,7 @@ func _on_exit_button_pressed():
 
 func _on_play_button_pressed():
 	get_tree().change_scene("res://gameplay/main/main.tscn")
+
+
+func _on_credits_menu_pressed():
+	get_tree().change_scene("res://gui/menus/credits_menu/credits_menu.tscn")
