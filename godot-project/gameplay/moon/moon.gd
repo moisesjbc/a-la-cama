@@ -15,6 +15,7 @@ func _process(delta):
 			global_position.y = (get_rect().size.y / 2)
 			velocity.y = 0
 			$particles.emitting = false
+			$explosion.play()
 			emit_signal("moon_collided")
 
 
