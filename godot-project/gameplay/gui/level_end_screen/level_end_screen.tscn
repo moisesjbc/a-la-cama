@@ -1,22 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fonts/title_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameplay/gui/level_end_screen/level_end_screen.gd" type="Script" id=3]
+[ext_resource path="res://styles/menu_panel_styles.tres" type="StyleBox" id=4]
 
 [node name="level_end_screen" type="CenterContainer"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -761.0
+margin_bottom = -661.0
 script = ExtResource( 3 )
 
 [node name="panel" type="Panel" parent="."]
-margin_left = 760.0
-margin_top = 31.0
-margin_right = 1160.0
-margin_bottom = 231.0
-rect_min_size = Vector2( 400, 200 )
+margin_left = 660.0
+margin_top = 106.0
+margin_right = 1260.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 600, 150 )
+custom_styles/panel = ExtResource( 4 )
 
 [node name="margin_container" type="MarginContainer" parent="panel"]
 anchor_right = 1.0
@@ -29,20 +31,23 @@ custom_constants/margin_bottom = 20
 [node name="vbox_container" type="VBoxContainer" parent="panel/margin_container"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 380.0
-margin_bottom = 180.0
+margin_right = 580.0
+margin_bottom = 130.0
+custom_constants/separation = 10
 
 [node name="title" type="Label" parent="panel/margin_container/vbox_container"]
-margin_right = 360.0
-margin_bottom = 71.0
+margin_right = 560.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "<DUMMY>
-"
+text = "<DUMMY>"
 align = 1
+valign = 1
 
 [node name="restart_button" parent="panel/margin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 75.0
-margin_right = 360.0
-margin_bottom = 102.0
+margin_top = 70.0
+margin_right = 560.0
+margin_bottom = 110.0
 
 [connection signal="pressed" from="panel/margin_container/vbox_container/restart_button" to="." method="_on_restart_button_pressed"]

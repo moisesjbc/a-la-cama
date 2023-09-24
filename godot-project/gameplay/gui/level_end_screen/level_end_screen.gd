@@ -14,7 +14,6 @@ func start(main, is_game_over):
 	else:
 		$panel/margin_container/vbox_container/title.text = "¡Dulces sueños!"
 		$panel/margin_container/vbox_container/restart_button.text = "Siguiente nivel - [espacio]"
-	print("$panel/margin_container/vbox_container/title.text")
 	get_tree().paused = true
 	visible = true
 
@@ -35,3 +34,7 @@ func _on_restart_button_pressed():
 func _input(event):
 	if visible and event is InputEventKey and not event.pressed and event.scancode == KEY_SPACE:
 		_on_restart_button_pressed()
+
+
+func _on_main_menu_button_pressed():
+	pass # Replace with function body.
