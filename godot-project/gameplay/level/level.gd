@@ -1,6 +1,7 @@
 extends Node2D
 
 signal player_reached_bed
+export var enforced_alternative_scene_name: String = ""
 
 
 var alternative_defs = [
@@ -51,7 +52,10 @@ func start(current_level_index):
 	if current_level_index % 2 == 1:
 		fixed_elements_scale = -1
 
-	update_valid_alternatives(current_level_index)
+	if enforced_alternative_scene_name == "":
+		update_valid_alternatives(current_level_index)
+	else:
+		valid_alternatives = [load("res://gameplay/level_section/alternatives/" + enforced_alternative_scene_name + ".tscn")]
 
 	$fixed_elements.scale.x = fixed_elements_scale
 	for level_section in $level_sections.get_children():

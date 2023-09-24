@@ -59,6 +59,7 @@ ui_jump={
 2d_physics/layer_4="moon"
 2d_physics/layer_5="wall"
 2d_physics/layer_6="spike"
+2d_physics/layer_7="gravity_platform"
 
 [physics]
 
