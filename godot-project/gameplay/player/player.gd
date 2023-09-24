@@ -15,6 +15,7 @@ func restart():
 	GRAVITY = 1000
 	JUMP_SPEED = 600
 	UP = Vector2(0, -1)
+	vertical_speed = 0
 	$sprite.visible = true
 	$z_particles.emitting = false
 	player_died = false
@@ -59,3 +60,4 @@ func invert_gravity():
 	GRAVITY *= -1
 	JUMP_SPEED *= -1
 	UP.y *= -1
+	vertical_speed *= -0.25
