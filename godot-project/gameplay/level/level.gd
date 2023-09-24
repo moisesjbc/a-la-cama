@@ -75,10 +75,14 @@ func start(current_level_index):
 		valid_alternatives = [load("res://gameplay/level_section/alternatives/" + enforced_alternative_scene_name + ".tscn")]
 
 	$fixed_elements.scale.x = fixed_elements_scale
+	var middle_index = 0
+	if len(valid_alternatives) > 1:
+		middle_index = len(valid_alternatives) / 2
 	if includes_new_alternative:
 		$level_sections.get_child(0).load_section([valid_alternatives[len(valid_alternatives) - 1]], current_level_index, fixed_elements_scale)
 	else:
-		$level_sections.get_child(0).load_section(valid_alternatives, current_level_index, fixed_elements_scale)
+		# Select between the latest added sections.
+		$level_sections.get_child(0).load_section(valid_alternatives.slice(middle_index, len(valid_alternatives) - 1), current_level_index, fixed_elements_scale)
 	$level_sections.get_child(1).load_section(valid_alternatives, current_level_index, fixed_elements_scale)
 		
 func restart(current_level_index):
