@@ -24,8 +24,9 @@ func restart():
 	global_position = initial_global_position
 
 
-func fall(is_happy):
+func fall(moon_mood):
 	$particles.emitting = true
-	$happy_face.visible = is_happy
-	$angry_face.visible = not is_happy
+	$happy_face.visible = moon_mood == types.MoonMood.HAPPY
+	$angry_face.visible = moon_mood == types.MoonMood.ANGRY
+	$love_face.visible = moon_mood == types.MoonMood.LOVE
 	velocity.y = SPEED

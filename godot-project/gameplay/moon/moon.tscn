@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gameplay/moon/moon.png" type="Texture" id=1]
 [ext_resource path="res://gameplay/moon/moon.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gameplay/moon/happy_face.png" type="Texture" id=4]
 [ext_resource path="res://gameplay/moon/angry_face.png" type="Texture" id=5]
 [ext_resource path="res://gameplay/moon/moon_explosion.wav" type="AudioStream" id=6]
+[ext_resource path="res://gameplay/moon/love_face.png" type="Texture" id=7]
 
 [node name="moon" type="Sprite"]
 position = Vector2( 960, -552 )
@@ -17,6 +18,9 @@ texture = ExtResource( 4 )
 
 [node name="angry_face" type="Sprite" parent="."]
 texture = ExtResource( 5 )
+
+[node name="love_face" type="Sprite" parent="."]
+texture = ExtResource( 7 )
 
 [node name="particles" type="CPUParticles2D" parent="."]
 pause_mode = 2

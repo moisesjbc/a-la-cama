@@ -8,13 +8,18 @@ var is_game_over: bool = true
 func start(main, is_game_over):
 	self.main = main
 	self.is_game_over = is_game_over
+	$panel/margin_container/vbox_container/thanks_body.visible = ((not is_game_over) and main.is_last_level())
 	if is_game_over:
 		$panel/margin_container/vbox_container/title.text = "¡GAME OVER!"
 		$panel/margin_container/vbox_container/restart_button.text = "REINTENTAR - [espacio]"
 	else:
-		$panel/margin_container/vbox_container/title.text = "¡DULCES SUEÑOS!"
-		$panel/margin_container/vbox_container/restart_button.text = "SIGUIENTE NIVEL - [espacio]"
-	$panel/margin_container/vbox_container/main_menu_button.visible = is_game_over
+		if not main.is_last_level():
+			$panel/margin_container/vbox_container/title.text = "¡DULCES SUEÑOS!"
+			$panel/margin_container/vbox_container/restart_button.text = "SIGUIENTE NIVEL - [espacio]"
+		else:
+			$panel/margin_container/vbox_container/title.text = "¡GRACIAS POR JUGAR!"
+			$panel/margin_container/vbox_container/restart_button.text = "CONTINUAR"
+	$panel/margin_container/vbox_container/main_menu_button.visible = is_game_over or main.is_last_level()
 	get_tree().paused = true
 	visible = true
 
@@ -33,7 +38,7 @@ func _on_restart_button_pressed():
 
 
 func _input(event):
-	if visible and event is InputEventKey and not event.pressed and event.scancode == KEY_SPACE:
+	if visible and event is InputEventKey and not event.pressed and event.scancode == KEY_SPACE and not main.is_last_level():
 		_on_restart_button_pressed()
 
 

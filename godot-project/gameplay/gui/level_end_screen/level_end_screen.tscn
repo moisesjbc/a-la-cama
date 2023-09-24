@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/title_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameplay/gui/level_end_screen/level_end_screen.gd" type="Script" id=3]
 [ext_resource path="res://styles/menu_panel_styles.tres" type="StyleBox" id=4]
+[ext_resource path="res://fonts/body_font.tres" type="DynamicFont" id=5]
 
 [node name="level_end_screen" type="CenterContainer"]
 pause_mode = 2
@@ -13,11 +14,11 @@ margin_bottom = -661.0
 script = ExtResource( 3 )
 
 [node name="panel" type="Panel" parent="."]
-margin_left = 660.0
-margin_top = 81.0
-margin_right = 1260.0
-margin_bottom = 281.0
-rect_min_size = Vector2( 600, 200 )
+margin_left = 560.0
+margin_top = 19.0
+margin_right = 1360.0
+margin_bottom = 344.0
+rect_min_size = Vector2( 800, 325 )
 custom_styles/panel = ExtResource( 4 )
 
 [node name="margin_container" type="MarginContainer" parent="panel"]
@@ -31,12 +32,12 @@ custom_constants/margin_bottom = 20
 [node name="vbox_container" type="VBoxContainer" parent="panel/margin_container"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 580.0
-margin_bottom = 186.0
+margin_right = 780.0
+margin_bottom = 314.0
 custom_constants/separation = 20
 
 [node name="title" type="Label" parent="panel/margin_container/vbox_container"]
-margin_right = 560.0
+margin_right = 760.0
 margin_bottom = 46.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -45,15 +46,26 @@ text = "<DUMMY>"
 align = 1
 valign = 1
 
-[node name="restart_button" parent="panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+[node name="thanks_body" type="Label" parent="panel/margin_container/vbox_container"]
 margin_top = 66.0
-margin_right = 560.0
-margin_bottom = 106.0
+margin_right = 760.0
+margin_bottom = 174.0
+custom_fonts/font = ExtResource( 5 )
+text = "Has llegado al final del juego.
+Si quieres, puedes pulsar en \"CONTINUAR\" para
+ver hasta dónde puedes llegar"
+align = 1
+valign = 1
+
+[node name="restart_button" parent="panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 194.0
+margin_right = 760.0
+margin_bottom = 234.0
 
 [node name="main_menu_button" parent="panel/margin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 126.0
-margin_right = 560.0
-margin_bottom = 166.0
+margin_top = 254.0
+margin_right = 760.0
+margin_bottom = 294.0
 text = "MENÚ PRINCIPAL"
 
 [connection signal="pressed" from="panel/margin_container/vbox_container/restart_button" to="." method="_on_restart_button_pressed"]

@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "types",
+"language": "GDScript",
+"path": "res://globals/types.gd"
+} ]
+_global_script_class_icons={
+"types": ""
+}
+
 [application]
 
 config/name="Indie Spain Jam 2023"
