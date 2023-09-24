@@ -3,7 +3,7 @@ extends Node2D
 signal player_reached_bed
 export var enforced_alternative_scene_name: String = ""
 
-
+var n_levels = 10
 var alternative_defs = [
 	{
 		"scene_name": "a0",
@@ -20,6 +20,10 @@ var alternative_defs = [
 	{
 		"scene_name": "a3",
 		"first_level": 4
+	},
+	{
+		"scene_name": "a4",
+		"first_level": 6
 	}
 ]
 var valid_alternatives = []

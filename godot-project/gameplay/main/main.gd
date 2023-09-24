@@ -34,6 +34,7 @@ func start_level(level_index):
 	var is_different_level = current_level_index != level_index
 	current_level_index = level_index
 	player_reached_bed = false
+	$background_gui/level_counter.text = str(current_level_index) + " / " + str($level.n_levels)
 	$player.restart()
 	$moon.restart()
 	if is_different_level:
