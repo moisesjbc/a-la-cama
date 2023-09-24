@@ -38,8 +38,12 @@ func start_level(level_index):
 	$moon.restart()
 	if is_different_level:
 		$level.start(current_level_index)
+	$level.restart(current_level_index)
 	$player.global_position = $level.get_player_spawn_position()
-	$background_gui/time_counter.start(10)
+	var level_time = 15
+	if $level.contains_tutorial():
+		level_time = 30
+	$background_gui/time_counter.start(level_time)
 
 
 func restart_game():

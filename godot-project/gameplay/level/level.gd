@@ -1,7 +1,9 @@
-extends Node2D
+extends Node
 
 signal player_reached_bed
 export var enforced_alternative_scene_name: String = ""
+
+var current_level_index
 
 var n_levels = 10
 var alternative_defs = [
@@ -23,11 +25,16 @@ var alternative_defs = [
 	},
 	{
 		"scene_name": "a4",
-		"first_level": 6
+		"first_level": 5
 	}
 ]
 var valid_alternatives = []
 
+var tutorial_texts = {
+	"0": "Bienvenido a \"¡A la cama!\"\nUsa las flechas o A/D para moverte hacia los lados y llegar hasta la cama\nantes de que se acabe el tiempo (barra superior)",
+	"1": "Parece que aquí CAE LA NOCHE literalmente.\nEn fin, esos pinchos parecen peligrosos. Pulsa ESPACIO para saltar",
+	"5": "Toca la plataforma para invertir la gravedad.\n¡Cuidado con salir volando!"
+}
 
 func update_valid_alternatives(current_level_index):
 	while len(alternative_defs) and (current_level_index >= alternative_defs[0]["first_level"]):
@@ -52,6 +59,7 @@ func get_fixed_elements_scale():
 
 
 func start(current_level_index):
+	self.current_level_index = current_level_index
 	$fixed_elements/bed.visible = true
 	var fixed_elements_scale: int = 1
 	if current_level_index % 2 == 1:
@@ -65,3 +73,14 @@ func start(current_level_index):
 	$fixed_elements.scale.x = fixed_elements_scale
 	for level_section in $level_sections.get_children():
 		level_section.load_section(valid_alternatives, current_level_index, fixed_elements_scale)
+		
+func restart(current_level_index):
+	var tutorial_text = tutorial_texts.get(str(current_level_index))
+	if tutorial_text != null:
+		$center_container/tutorial_label.visible = true
+		$center_container/tutorial_label.text = tutorial_text
+	else:
+		$center_container/tutorial_label.visible = false
+
+func contains_tutorial():
+	return tutorial_texts.get(str(current_level_index))
