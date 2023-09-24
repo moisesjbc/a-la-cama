@@ -10,7 +10,7 @@ func start(main, is_game_over):
 	self.is_game_over = is_game_over
 	if is_game_over:
 		$panel/margin_container/vbox_container/title.text = "¡GAME OVER!"
-		$panel/margin_container/vbox_container/restart_button.text = "NUEVA PARTIDA - [espacio]"
+		$panel/margin_container/vbox_container/restart_button.text = "REINTENTAR - [espacio]"
 	else:
 		$panel/margin_container/vbox_container/title.text = "¡DULCES SUEÑOS!"
 		$panel/margin_container/vbox_container/restart_button.text = "SIGUIENTE NIVEL - [espacio]"
@@ -27,7 +27,7 @@ func stop():
 func _on_restart_button_pressed():
 	stop()
 	if is_game_over:
-		get_tree().change_scene("res://gameplay/main/main.tscn")
+		main.restart_level()
 	else:
 		main.next_level()
 

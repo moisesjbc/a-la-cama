@@ -1,7 +1,9 @@
 extends CenterContainer
 
+var main
 
-func start():
+func start(main):
+	self.main = main
 	visible = true
 	get_tree().paused = true
 
@@ -13,7 +15,7 @@ func stop():
 
 func _on_restart_button_pressed():
 	stop()
-	get_tree().change_scene("res://gameplay/main/main.tscn")
+	main.restart_level()
 
 
 func _input(event):

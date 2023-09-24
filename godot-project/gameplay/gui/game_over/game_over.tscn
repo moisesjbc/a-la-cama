@@ -52,7 +52,7 @@ valign = 1
 margin_top = 110.0
 margin_right = 560.0
 margin_bottom = 150.0
-text = "VOLVER AL JUEGO [espacio]"
+text = "REINTENTAR [espacio]"
 
 [node name="main_menu_button" parent="panel/margin_container/vertical_container" instance=ExtResource( 2 )]
 margin_top = 170.0

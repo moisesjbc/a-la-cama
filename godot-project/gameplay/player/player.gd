@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export var GRAVITY: int = 1000
-export var SPEED: int = 500
-var UP: Vector2 = Vector2(0, -1)
-export var JUMP_SPEED: int = 500
+var GRAVITY
+var SPEED = 500
+var UP: Vector2
+var JUMP_SPEED
 
 var vertical_speed = 0
 
@@ -13,7 +13,7 @@ var player_died: bool = false
 
 func restart():
 	GRAVITY = 1000
-	JUMP_SPEED = 500
+	JUMP_SPEED = 600
 	UP = Vector2(0, -1)
 	$sprite.visible = true
 	$z_particles.emitting = false

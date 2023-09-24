@@ -5,8 +5,6 @@ var player_reached_bed: bool = false
 var current_level_index = 0
 
 
-
-
 func _ready():
 	restart_game()
 
@@ -20,7 +18,7 @@ func _on_levels_player_reached_bed():
 
 
 func _on_player_player_died():
-	$front_gui/game_over.start()
+	$front_gui/game_over.start(self)
 
 
 func _on_time_counter_time_ended():
@@ -33,17 +31,23 @@ func _on_level_player_reached_bed():
 
 
 func start_level(level_index):
+	var is_different_level = current_level_index != level_index
 	current_level_index = level_index
 	player_reached_bed = false
 	$player.restart()
 	$moon.restart()
-	$level.start(current_level_index)
+	if is_different_level:
+		$level.start(current_level_index)
 	$player.global_position = $level.get_player_spawn_position()
 	$background_gui/time_counter.start(10)
 
 
 func restart_game():
 	start_level(0)
+
+
+func restart_level():
+	start_level(current_level_index)
 
 
 func next_level():
