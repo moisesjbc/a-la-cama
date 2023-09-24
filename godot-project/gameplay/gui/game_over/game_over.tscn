@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/Ubuntu-B.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameplay/gui/game_over/game_over.gd" type="Script" id=3]
+[ext_resource path="res://styles/menu_panel_styles.tres" type="StyleBox" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -16,10 +17,11 @@ script = ExtResource( 3 )
 
 [node name="panel" type="Panel" parent="."]
 margin_left = 660.0
-margin_top = 437.0
+margin_top = 387.0
 margin_right = 1260.0
-margin_bottom = 587.0
-rect_min_size = Vector2( 600, 150 )
+margin_bottom = 637.0
+rect_min_size = Vector2( 600, 250 )
+custom_styles/panel = ExtResource( 4 )
 
 [node name="margin_container" type="MarginContainer" parent="panel"]
 anchor_right = 1.0
@@ -33,20 +35,30 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 580.0
-margin_bottom = 130.0
+margin_bottom = 230.0
 custom_constants/separation = 20
 
 [node name="tile" type="Label" parent="panel/margin_container/vertical_container"]
 margin_right = 560.0
-margin_bottom = 34.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "GAME OVER"
 align = 1
+valign = 1
 
 [node name="restart_button" parent="panel/margin_container/vertical_container" instance=ExtResource( 2 )]
-margin_top = 54.0
+margin_top = 110.0
 margin_right = 560.0
-margin_bottom = 81.0
-text = "Reiniciar juego [espacio]"
+margin_bottom = 150.0
+text = "VOLVER AL JUEGO [espacio]"
+
+[node name="main_menu_button" parent="panel/margin_container/vertical_container" instance=ExtResource( 2 )]
+margin_top = 170.0
+margin_right = 560.0
+margin_bottom = 210.0
+text = "MENÚ PRINCIPAL"
 
 [connection signal="pressed" from="panel/margin_container/vertical_container/restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="panel/margin_container/vertical_container/main_menu_button" to="." method="_on_main_menu_button_pressed"]
