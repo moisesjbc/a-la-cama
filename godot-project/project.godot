@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="¡A la cama! - v0.1"
+config/name="¡A la cama! - v0.2"
 run/main_scene="res://gui/menus/main_menu/main_menu.tscn"
 config/icon="res://icon.png"
 
