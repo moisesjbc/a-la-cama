@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/menus/main_menu/main_menu.gd" type="Script" id=3]
+[ext_resource path="res://gui/menus/main_menu/angry_moon.png" type="Texture" id=4]
+[ext_resource path="res://gui/menus/main_menu/happy_moon.png" type="Texture" id=5]
+[ext_resource path="res://styles/menu_panel_styles.tres" type="StyleBox" id=6]
+
+[node name="main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="menu_panel" type="Panel" parent="center_container"]
+margin_left = 560.0
+margin_top = 362.0
+margin_right = 1360.0
+margin_bottom = 662.0
+rect_min_size = Vector2( 800, 300 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="margin_container" type="MarginContainer" parent="center_container/menu_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="vbox_container" type="VBoxContainer" parent="center_container/menu_panel/margin_container"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 780.0
+margin_bottom = 280.0
+custom_constants/separation = 20
+
+[node name="moon" type="Sprite" parent="center_container/menu_panel/margin_container/vbox_container"]
+position = Vector2( 67, 72 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="moon2" type="Sprite" parent="center_container/menu_panel/margin_container/vbox_container"]
+position = Vector2( 693, 72 )
+scale = Vector2( -2, 2 )
+texture = ExtResource( 4 )
+
+[node name="title" type="Label" parent="center_container/menu_panel/margin_container/vbox_container"]
+margin_right = 760.0
+margin_bottom = 140.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "¡A LA CAMA!"
+align = 1
+valign = 1
+
+[node name="play_button" parent="center_container/menu_panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 160.0
+margin_right = 760.0
+margin_bottom = 200.0
+text = "JUGAR"
+
+[node name="exit_button" parent="center_container/menu_panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 220.0
+margin_right = 760.0
+margin_bottom = 260.0
+text = "SALIR DEL JUEGO"
+
+[connection signal="pressed" from="center_container/menu_panel/margin_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="center_container/menu_panel/margin_container/vbox_container/exit_button" to="." method="_on_exit_button_pressed"]

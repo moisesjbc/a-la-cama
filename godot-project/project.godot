@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Indie Spain Jam 2023"
-run/main_scene="res://gameplay/main/main.tscn"
+run/main_scene="res://gui/menus/main_menu/main_menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+globals="*res://globals/globals.tscn"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gameplay/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/level/level.tscn" type="PackedScene" id=2]
@@ -8,16 +8,11 @@
 [ext_resource path="res://gameplay/walls.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gameplay/gui/timer/timer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/gui/level_end_screen/level_end_screen.tscn" type="PackedScene" id=8]
-[ext_resource path="res://gameplay/main/background.png" type="Texture" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 
 [node name="main" type="Node"]
 script = ExtResource( 3 )
-
-[node name="background" type="Sprite" parent="."]
-position = Vector2( 962, 515 )
-texture = ExtResource( 9 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1822, 853 )

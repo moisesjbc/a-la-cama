@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-39776a1e7e7c18033734e1b3fc531fe4.stex"
+path="res://.import/happy_moon.png-6f399a7a0a64e52b6d834065f1aa4f35.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gameplay/main/background.png"
-dest_files=[ "res://.import/background.png-39776a1e7e7c18033734e1b3fc531fe4.stex" ]
+source_file="res://gui/menus/main_menu/happy_moon.png"
+dest_files=[ "res://.import/happy_moon.png-6f399a7a0a64e52b6d834065f1aa4f35.stex" ]
 
 [params]
 
